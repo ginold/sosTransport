@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>Sos Trance 24 & Old machines</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,7 +21,7 @@
         <script src="node_modules\angular\angular.min.js"></script>
         <script src="node_modules\angular-ui-router\release\angular-ui-router.min.js"></script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="js/live.js"></script>
+
     </head>
     <body ng-app="sosTrance">
 
@@ -32,32 +32,25 @@
             <div class="col-md-6" id="call">
                 <p class="col-md-9">Call us : <span class="telNumber"> +48 517565692</span> OR  <span class="telNumber">+48 9203829480 </span></p>
                 <ul id="languages">
-                    <li> <a  ><img src="img/pl.svg" ></a>  </li>
-                    <li> <a > <img src="img/de.svg" > </a></li>
+                    <li> <a  href=""><img src="img/pl.svg" ></a>  </li>
+                    <li> <a href=""> <img src="img/de.svg" > </a></li>
                     <li> <a href=""> <img src="img/fr.svg" ></a> </li>
                     <li> <a href=""> <img src="img/en.svg"> </a></li>
                 </ul>
             </div>
             <nav id='cssmenu'  ng-controller="navCtrl">
             <ul>
-               <li class='active'><a ui-sref="home"><span>Home</span></a></li>
-               <li ><a ui-sref="offer"><span>Offer</span></a></li>
-               <li><a ui-sref="cars"><span>Cars</span></a></li>
-               <li ><a ui-sref="about"><span>About us</span></a></li>
+               <li ng-class="{active: isActive('/home')}"><a ui-sref="home"><span>Home</span></a></li>
+               <li ng-class="{active: isActive('/offer')}"><a ui-sref="offer"><span>Offer</span></a></li>
+               <li ng-class="{active: isActive('/cars')}"><a ui-sref="cars"><span>Cars</span></a></li>
+               <li ng-class="{active: isActive('/about')}"><a ui-sref="about"><span>About us</span></a></li>
               
-               <li class='last '><a ui-sref="contact"><span>Contact</span></a></li>
+               <li class='last ' ng-class="{active: isActive('/contact')}"><a ui-sref="contact"><span>Contact</span></a></li>
             </ul>
             </nav>
-         <ui-view class="container animated bounce "> 
+         <ui-view > 
 
          </ui-view>
-          <!--   <section id="about">
-                <h2>About</h2>
-            </section>
-
-            <section id="offer">
-                   <h2>Offer</h2>
-            </section> -->
 
         </main>
         <footer>

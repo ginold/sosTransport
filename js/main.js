@@ -31,12 +31,24 @@ var app = angular.module('sosTrance', ['ui.router'])
 
 app.controller('mainCtrl', function($scope,$state) {
 	$state.go("home")
+  $(document).ready(function(){
+    $( ".telNumber" ).hover(
+      function() {
+        $( this ).addClass( "animated pulse" );
+      }, function() {
+        $( this ).removeClass( "animated pulse" );
+      }
+      );
+  })
+  
 });
 app.controller('HomeCtrl', function($scope) {
 
 });
 app.controller('ContactCtrl', function($scope) {
-
+  $scope.phone = {
+    poland : "+48 29392389"
+  }
 });
 app.controller('AboutCtrl', function($scope) {
 
@@ -48,8 +60,8 @@ app.controller('OfferCtrl', function($scope) {
 
 });
 
-app.controller('navCtrl', function($scope) {
-	$scope.nav = function(section){
-		console.log(section)
-	}
+app.controller('navCtrl', function($scope , $location) {
+	  $scope.isActive = function(route) {
+      return route === $location.path();
+    };
 });
