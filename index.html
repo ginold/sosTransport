@@ -14,9 +14,12 @@
 
 
         <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="css/main.css">
 
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+        <script src="node_modules\angular\angular.min.js"></script>
+        <script src="node_modules\angular-ui-router\release\angular-ui-router.min.js"></script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="js/live.js"></script>
     </head>
@@ -29,91 +32,25 @@
             <div class="col-md-6" id="call">
                 <p class="col-md-9">Call us : <span class="telNumber"> +48 517565692</span> OR  <span class="telNumber">+48 9203829480 </span></p>
                 <ul id="languages">
-                    <li> <a href=""><img src="img/pl.svg" ></a>  </li>
-                    <li> <a href=""> <img src="img/de.svg" > </a></li>
+                    <li> <a  ><img src="img/pl.svg" ></a>  </li>
+                    <li> <a > <img src="img/de.svg" > </a></li>
                     <li> <a href=""> <img src="img/fr.svg" ></a> </li>
                     <li> <a href=""> <img src="img/en.svg"> </a></li>
                 </ul>
             </div>
             <nav id='cssmenu'  ng-controller="navCtrl">
             <ul>
-               <li ng-click="nav('home')" class='active'><a href='#'><span>Home</span></a></li>
-               <li ng-click="nav('offer')"><a href='#'><span>Offer</span></a></li>
-               <li ng-click="nav('cars')"><a href='#'><span>Cars</span></a></li>
-               <li ng-click="nav('about')"><a href='#'><span>About us</span></a></li>
+               <li class='active'><a ui-sref="home"><span>Home</span></a></li>
+               <li ><a ui-sref="offer"><span>Offer</span></a></li>
+               <li><a ui-sref="cars"><span>Cars</span></a></li>
+               <li ><a ui-sref="about"><span>About us</span></a></li>
               
-               <li class='last'><a href='#'><span>Contact</span></a></li>
+               <li class='last '><a ui-sref="contact"><span>Contact</span></a></li>
             </ul>
             </nav>
-            <section id="home">
-                <img src="img/help-en.png" id="help-img" >
-                <img src="img/laweta.png" id="laweta" >
-                <div id="flipCards" class="col-md-12">
+         <ui-view class="container animated bounce "> 
 
-
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper">
-                            <div class="front">
-                                <div class="flip-content">
-                                      <img src="img/towing.png" class="flip-icon" >
-                                </div>
-                                <div class="flip-title">
-                                    Pomoc drogowa
-                                </div>
-                            </div>
-                            <div class="back">
-                                qweqw
-                            </div>
-                        </div>
-                    </div>
-                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper">
-                            <div class="front">
-                                <div class="flip-content">
-                                      <img src="img/scrap.png" class="flip-icon">
-                                </div>
-                                <div class="flip-title" >
-                                    Renowacja zabytków
-                                </div>
-                            </div>
-                            <div class="back">
-                                qweqw
-                            </div>
-                        </div>
-                    </div>
-                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper">
-                            <div class="front">
-                                <div class="flip-content">
-                                    <img src="img/repair.png" class="flip-icon">
-                                </div>
-                                <div class="flip-title">
-                                    Serwis samochodowy
-                                </div>
-                            </div>
-                            <div class="back">
-                                qweqw
-                            </div>
-                        </div>
-                    </div>
-                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper">
-                             <div class="front">
-                                <div class="flip-content">
-                                    <img src="img/scrap.png" class="flip-icon">
-                                </div>
-                                <div class="flip-title">
-                                    Złomowanie pojazdów
-                                </div>
-                            </div>
-                            <div class="back">
-                                qweqw
-                            </div>
-                        </div>
-                    </div>
-                    
-                 </div>
-            </section>
+         </ui-view>
           <!--   <section id="about">
                 <h2>About</h2>
             </section>
