@@ -32,15 +32,20 @@ var app = angular.module('sosTrance', ['ui.router'])
 app.controller('mainCtrl', function($scope,$state) {
 	$state.go("home")
   $(document).ready(function(){
-    $( ".telNumber" ).hover(
+    $(".flag").hover(
       function() {
         $( this ).addClass( "animated pulse" );
       }, function() {
         $( this ).removeClass( "animated pulse" );
-      }
-      );
+      });
+    $( ".telNumber").hover(
+      function() {
+        $( this ).addClass( "animated pulse" );
+      }, function() {
+        $( this ).removeClass( "animated pulse" );
+      });
   })
-  
+
 });
 app.controller('HomeCtrl', function($scope) {
 

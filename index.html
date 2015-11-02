@@ -25,17 +25,17 @@
     </head>
     <body ng-app="sosTrance">
 
-        <main ng-controller="mainCtrl">
-            <div class="col-md-6" id="title">
+        <header>
+            <div class="col-md-6" >
                 <h1>S.O.S Trance & Old machines</h1>
             </div>
             <div class="col-md-6" id="call">
                 <p class="col-md-9">Call us : <span class="telNumber"> +48 517565692</span> OR  <span class="telNumber">+48 9203829480 </span></p>
                 <ul id="languages">
-                    <li> <a  href=""><img src="img/pl.svg" ></a>  </li>
-                    <li> <a href=""> <img src="img/de.svg" > </a></li>
-                    <li> <a href=""> <img src="img/fr.svg" ></a> </li>
-                    <li> <a href=""> <img src="img/en.svg"> </a></li>
+                    <li> <a  href=""><img src="img/pl.svg" class="flag"></a>  </li>
+                    <li> <a href=""> <img src="img/de.svg"  class="flag"> </a></li>
+                    <li> <a href=""> <img src="img/fr.svg"  class="flag"></a> </li>
+                    <li> <a href=""> <img src="img/en.svg" class="flag"> </a></li>
                 </ul>
             </div>
             <nav id='cssmenu'  ng-controller="navCtrl">
@@ -48,6 +48,8 @@
                <li class='last ' ng-class="{active: isActive('/contact')}"><a ui-sref="contact"><span>Contact</span></a></li>
             </ul>
             </nav>
+        </header>
+        <main ng-controller="mainCtrl">
          <ui-view > 
 
          </ui-view>
