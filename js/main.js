@@ -30,7 +30,7 @@ var app = angular.module('sosTrance', ['ui.router'])
 
 
 app.controller('mainCtrl', function($scope,$state) {
-	$state.go("home")
+	$state.go("home");
   $(document).ready(function(){
     $(".flag").hover(
       function() {
@@ -62,7 +62,58 @@ app.controller('CarsCtrl', function($scope) {
 
 });
 app.controller('OfferCtrl', function($scope) {
+  $(document).ready(function(){
+    
+    var offersCopy;
+    var isLeftOffer = true;
+    $(".offers").hover(function(){
+      var offers = ["towing", "repair","service","buy"]
+      var offerName = $(this).attr("data-img")
+     
+      $( this ).addClass( "big" );
 
+
+      var i = offers.indexOf(offerName);
+      offers.splice(i,1)
+
+    //do what you need here
+
+        $(".offers").not(this).each( function(i, offer){
+
+          $(offer).children("img").attr("src", "img/"+offers[i]+".jpg") 
+          $(".offerImage").each(function(i, image){
+            $(image).attr("src","img/"+offerName+".jpg")
+          })
+ 
+          if (isLeftOffer) {
+            $(offer).children("div.imagesContainer, p").addClass("toRight");
+            var img = $("<img>");  img.attr('src', "img/"+offers[i]+".jpg");
+
+          }else{
+            $(offer).children("div.imagesContainer").addClass("toLeft")
+           // $(offer).children("p").addClass("toLeft")
+          }
+
+        })//each
+    },function(){
+       var offers = ["towing", "repair","service","buy"]
+       $(".offers").each( function(i, offer){
+          $(offer).children("img").attr("src", "img/"+offers[i]+".svg") 
+          $(offer).children("div.imagesContainer, p").removeClass("toRight toLeft")
+        })
+       isLeftOffer = !isLeftOffer;
+        $( this ).removeClass( "big" ); 
+       
+    })
+  })
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 });
 
 app.controller('navCtrl', function($scope , $location) {
